@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const postSchema = new (
+const postSchema = new Schema(
     {
         name: {
             type: String,
@@ -15,8 +15,8 @@ const postSchema = new (
         },
 
         age: {
-            type: Number, 
-            required: true, 
+            type: Number,
+            required: true,
             min: 1,
             max: 150
         }
@@ -27,4 +27,4 @@ const postSchema = new (
     }
 );
 
-export const Post = mongoose.model('Post', postSchema);
+export const Post = mongoose.model("Post", postSchema);

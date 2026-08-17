@@ -1,4 +1,4 @@
-import Router from "express";
+import { Router } from "express";
 import { createPost, deletePost, getPosts, updatePost } from "../controllers/post.controller.js";
 
 const router = Router();

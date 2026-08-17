@@ -26,6 +26,11 @@ const userSchema = new Schema(
             unique: true,
             lowercase: true,
             trim: true,
+        },
+
+        loggedIn: {
+            type: Boolean,
+            default: false,
         }
     },
 
@@ -33,7 +38,7 @@ const userSchema = new Schema(
         timestamps: true
     }
 
-)
+);
 
 // befiore saving any password we need to hash it
 userSchema.pre("save", async function (next) {
@@ -45,6 +50,6 @@ userSchema.pre("save", async function (next) {
 // compare passwords
 userSchema.methods.comparePasswords = async function (password) {
     return await bcrypt.compare(password, this.password);
-}
+};
 
 export const User = mongoose.model("User", userSchema);
